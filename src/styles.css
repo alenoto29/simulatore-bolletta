@@ -1,0 +1,24 @@
+.ppn-cta-fallback {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: #0088ff;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.ppn-cta-fallback:hover {
+  background: #0068c4;
+}
+
+.ppn-cta-fallback[aria-disabled='true'] {
+  background: #9aa8bb;
+  cursor: not-allowed;
+  pointer-events: none;
+}
