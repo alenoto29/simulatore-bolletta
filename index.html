@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simulatore Bolletta</title>
+  </head>
+  <body>
+    <main class="wizard-container" data-mobile-first="true">
+      <section class="step is-active" data-step="1">
+        <header class="pn-header" aria-label="Papernest">
+          <strong>Papernest</strong>
+        </header>
+        <p class="progress-text">Step 1 di 5</p>
+        <h1>Che tipo di offerta vuoi simulare?</h1>
+        <p>Seleziona una categoria per iniziare la simulazione della bolletta.</p>
+        <div class="choice-group" data-field="energyType">
+          <button type="button" class="choice-card" data-value="luce">Luce</button>
+          <button type="button" class="choice-card" data-value="gas">Gas</button>
+          <button type="button" class="choice-card" data-value="dual">Dual</button>
+        </div>
+        <p class="inline-message" data-message-for="step1" aria-live="polite"></p>
+        <div class="actions">
+          <button type="button" class="btn btn-primary" data-action="next">Avanti</button>
+        </div>
+      </section>
+
+      <section class="step" data-step="2" hidden>
+        <header class="pn-header" aria-label="Papernest">
+          <strong>Papernest</strong>
+        </header>
+        <p class="progress-text">Step 2 di 5</p>
+        <h2>Dove userai l’offerta?</h2>
+        <p>Scegli il contesto principale per ricevere una stima più utile.</p>
+        <div class="choice-group" data-field="usageContext">
+          <button type="button" class="choice-card" data-value="casa">Casa</button>
+          <button type="button" class="choice-card" data-value="ufficio">Ufficio</button>
+          <button type="button" class="choice-card" data-value="seconda-casa">Seconda casa</button>
+        </div>
+        <div class="actions">
+          <button type="button" class="btn btn-secondary" data-action="prev">Indietro</button>
+          <button type="button" class="btn btn-primary" data-action="next">Avanti</button>
+        </div>
+      </section>
+
+      <section class="step" data-step="3" hidden>
+        <header class="pn-header" aria-label="Papernest">
+          <strong>Papernest</strong>
+        </header>
+        <p class="progress-text">Step 3 di 5</p>
+        <h2>Quali servizi ti interessano?</h2>
+        <p>Puoi selezionare più opzioni oppure saltare e continuare.</p>
+        <div class="choice-group" data-field="preferences" data-multi="true">
+          <button type="button" class="choice-card" data-value="prezzo-fisso">Prezzo fisso</button>
+          <button type="button" class="choice-card" data-value="energia-verde">Energia verde</button>
+          <button type="button" class="choice-card" data-value="gestione-digitale">Gestione digitale</button>
+        </div>
+        <div class="actions">
+          <button type="button" class="btn btn-secondary" data-action="prev">Indietro</button>
+          <button type="button" class="btn btn-primary" data-action="next">Avanti</button>
+        </div>
+      </section>
+
+      <section class="step" data-step="4" hidden>
+        <header class="pn-header" aria-label="Papernest">
+          <strong>Papernest</strong>
+        </header>
+        <p class="progress-text">Step 4 di 5</p>
+        <h2>Qual è il tuo consumo stimato?</h2>
+        <p>Seleziona la fascia che descrive meglio la tua spesa mensile.</p>
+        <div class="choice-group" data-field="consumptionBand">
+          <button type="button" class="choice-card" data-value="basso">Basso (&lt; 50€)</button>
+          <button type="button" class="choice-card" data-value="medio">Medio (50€ - 100€)</button>
+          <button type="button" class="choice-card" data-value="alto">Alto (&gt; 100€)</button>
+        </div>
+        <div class="actions">
+          <button type="button" class="btn btn-secondary" data-action="prev">Indietro</button>
+          <button type="button" class="btn btn-primary" data-action="next">Avanti</button>
+        </div>
+      </section>
+
+      <section class="step" data-step="5" hidden>
+        <header class="pn-header" aria-label="Papernest">
+          <strong>Papernest</strong>
+        </header>
+        <p class="progress-text">Step 5 di 5</p>
+        <h2>Riepilogo simulazione</h2>
+        <p>Controlla le tue scelte prima di procedere al risultato finale.</p>
+        <ul class="summary-list" data-summary></ul>
+        <div class="actions">
+          <button type="button" class="btn btn-secondary" data-action="prev">Indietro</button>
+          <button type="button" class="btn btn-primary" disabled>Avanti</button>
+        </div>
+      </section>
+    </main>
+
+    <script src="src/app.js"></script>
+  </body>
+</html>
