@@ -3,97 +3,233 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Simulatore Bolletta</title>
+    <title>Simulatore Bolletta | Papernest</title>
+    <link rel="stylesheet" href="./src/styles.css" />
   </head>
   <body>
+    <header class="brand-header" aria-label="Papernest header">
+      <div class="brand-header__inner">
+        <p class="brand-logo">Papernest</p>
+        <p class="brand-tagline">Confronta e scegli l'offerta giusta in pochi step</p>
+      </div>
+    </header>
+
     <main class="wizard-container" data-mobile-first="true">
-      <section class="step is-active" data-step="1">
-        <header class="pn-header" aria-label="Papernest">
-          <strong>Papernest</strong>
-        </header>
-        <p class="progress-text">Step 1 di 5</p>
-        <h1>Che tipo di offerta vuoi simulare?</h1>
-        <p>Seleziona una categoria per iniziare la simulazione della bolletta.</p>
-        <div class="choice-group" data-field="energyType">
-          <button type="button" class="choice-card" data-value="luce">Luce</button>
-          <button type="button" class="choice-card" data-value="gas">Gas</button>
-          <button type="button" class="choice-card" data-value="dual">Dual</button>
-        </div>
-        <p class="inline-message" data-message-for="step1" aria-live="polite"></p>
-        <div class="actions">
-          <button type="button" class="btn btn-primary" data-action="next">Avanti</button>
+      <section class="wizard-progress" aria-label="Progresso simulatore">
+        <p class="wizard-progress__text" data-progress-label>Step 1 di 5</p>
+        <div class="wizard-progress__track" role="progressbar" aria-valuemin="1" aria-valuemax="5" aria-valuenow="1">
+          <span class="wizard-progress__fill" data-progress-fill></span>
         </div>
       </section>
 
-      <section class="step" data-step="2" hidden>
-        <header class="pn-header" aria-label="Papernest">
-          <strong>Papernest</strong>
-        </header>
-        <p class="progress-text">Step 2 di 5</p>
-        <h2>Dove userai l’offerta?</h2>
-        <p>Scegli il contesto principale per ricevere una stima più utile.</p>
-        <div class="choice-group" data-field="usageContext">
-          <button type="button" class="choice-card" data-value="casa">Casa</button>
-          <button type="button" class="choice-card" data-value="ufficio">Ufficio</button>
-          <button type="button" class="choice-card" data-value="seconda-casa">Seconda casa</button>
+      <section class="step step-1 is-active" data-step="1">
+        <p class="step-kicker">Step 1 di 5</p>
+        <h1 class="step-title">Che fornitura vuoi simulare?</h1>
+        <p class="step-description">Seleziona il servizio principale: potrai affinare tutto nei prossimi passaggi.</p>
+
+        <div class="choice-grid choice-grid-energy">
+          <button class="choice-card" type="button" data-go-step="2">
+            <span class="choice-card__icon">⚡</span>
+            <span class="choice-card__title">Luce</span>
+            <span class="choice-card__subtitle">Solo energia elettrica</span>
+          </button>
+          <button class="choice-card" type="button" data-go-step="2">
+            <span class="choice-card__icon">🔥</span>
+            <span class="choice-card__title">Gas</span>
+            <span class="choice-card__subtitle">Solo gas domestico</span>
+          </button>
         </div>
-        <div class="actions">
-          <button type="button" class="btn btn-secondary" data-action="prev">Indietro</button>
-          <button type="button" class="btn btn-primary" data-action="next">Avanti</button>
+
+        <div class="choice-grid choice-grid-center">
+          <button class="choice-card choice-card--wide" type="button" data-go-step="2">
+            <span class="choice-card__icon">🏠</span>
+            <span class="choice-card__title">Dual</span>
+            <span class="choice-card__subtitle">Luce + Gas in un'unica soluzione</span>
+          </button>
         </div>
       </section>
 
-      <section class="step" data-step="3" hidden>
-        <header class="pn-header" aria-label="Papernest">
-          <strong>Papernest</strong>
-        </header>
-        <p class="progress-text">Step 3 di 5</p>
-        <h2>Quali servizi ti interessano?</h2>
-        <p>Puoi selezionare più opzioni oppure saltare e continuare.</p>
-        <div class="choice-group" data-field="preferences" data-multi="true">
-          <button type="button" class="choice-card" data-value="prezzo-fisso">Prezzo fisso</button>
-          <button type="button" class="choice-card" data-value="energia-verde">Energia verde</button>
-          <button type="button" class="choice-card" data-value="gestione-digitale">Gestione digitale</button>
-        </div>
-        <div class="actions">
-          <button type="button" class="btn btn-secondary" data-action="prev">Indietro</button>
-          <button type="button" class="btn btn-primary" data-action="next">Avanti</button>
+      <section class="step step-2" data-step="2" hidden>
+        <p class="step-kicker">Step 2 di 5</p>
+        <h2 class="step-title">Dove vuoi attivare la fornitura?</h2>
+        <p class="step-description">Indicaci il contesto per proporti opzioni con tariffe e servizi compatibili.</p>
+
+        <div class="choice-grid">
+          <button class="choice-card" type="button" data-go-step="3">
+            <span class="choice-card__icon">🏡</span>
+            <span class="choice-card__title">Prima casa</span>
+            <span class="choice-card__subtitle">Uso abitativo principale</span>
+          </button>
+          <button class="choice-card" type="button" data-go-step="3">
+            <span class="choice-card__icon">🗝️</span>
+            <span class="choice-card__title">Seconda casa</span>
+            <span class="choice-card__subtitle">Consumi saltuari o stagionali</span>
+          </button>
+          <button class="choice-card" type="button" data-go-step="3">
+            <span class="choice-card__icon">🏢</span>
+            <span class="choice-card__title">Piccola attivita</span>
+            <span class="choice-card__subtitle">Ufficio, studio o negozio</span>
+          </button>
         </div>
       </section>
 
-      <section class="step" data-step="4" hidden>
-        <header class="pn-header" aria-label="Papernest">
-          <strong>Papernest</strong>
-        </header>
-        <p class="progress-text">Step 4 di 5</p>
-        <h2>Qual è il tuo consumo stimato?</h2>
-        <p>Seleziona la fascia che descrive meglio la tua spesa mensile.</p>
-        <div class="choice-group" data-field="consumptionBand">
-          <button type="button" class="choice-card" data-value="basso">Basso (&lt; 50€)</button>
-          <button type="button" class="choice-card" data-value="medio">Medio (50€ - 100€)</button>
-          <button type="button" class="choice-card" data-value="alto">Alto (&gt; 100€)</button>
-        </div>
-        <div class="actions">
-          <button type="button" class="btn btn-secondary" data-action="prev">Indietro</button>
-          <button type="button" class="btn btn-primary" data-action="next">Avanti</button>
+      <section class="step step-3" data-step="3" hidden>
+        <p class="step-kicker">Step 3 di 5</p>
+        <h2 class="step-title">Qual e il tuo profilo di consumo?</h2>
+        <p class="step-description">Questo aiuta il motore a mostrare offerte piu pertinenti e sostenibili.</p>
+
+        <div class="choice-grid">
+          <button class="choice-card" type="button" data-go-step="4">
+            <span class="choice-card__icon">🌙</span>
+            <span class="choice-card__title">Sera e weekend</span>
+            <span class="choice-card__subtitle">Consumi concentrati fuori orario ufficio</span>
+          </button>
+          <button class="choice-card" type="button" data-go-step="4">
+            <span class="choice-card__icon">☀️</span>
+            <span class="choice-card__title">Mattina e pomeriggio</span>
+            <span class="choice-card__subtitle">Casa attiva durante il giorno</span>
+          </button>
+          <button class="choice-card" type="button" data-go-step="4">
+            <span class="choice-card__icon">🔁</span>
+            <span class="choice-card__title">Distribuito</span>
+            <span class="choice-card__subtitle">Consumi bilanciati durante la giornata</span>
+          </button>
         </div>
       </section>
 
-      <section class="step" data-step="5" hidden>
-        <header class="pn-header" aria-label="Papernest">
-          <strong>Papernest</strong>
-        </header>
-        <p class="progress-text">Step 5 di 5</p>
-        <h2>Riepilogo simulazione</h2>
-        <p>Controlla le tue scelte prima di procedere al risultato finale.</p>
-        <ul class="summary-list" data-summary></ul>
-        <div class="actions">
-          <button type="button" class="btn btn-secondary" data-action="prev">Indietro</button>
-          <button type="button" class="btn btn-primary" disabled>Avanti</button>
+      <section class="step step-4" data-step="4" hidden>
+        <p class="step-kicker">Step 4 di 5</p>
+        <h2 class="step-title">Che priorita hai?</h2>
+        <p class="step-description">Seleziona l'obiettivo principale per ordinare meglio i risultati.</p>
+
+        <div class="choice-grid">
+          <button class="choice-card" type="button" data-go-step="5">
+            <span class="choice-card__icon">💸</span>
+            <span class="choice-card__title">Risparmio</span>
+            <span class="choice-card__subtitle">Massimizzare la convenienza mensile</span>
+          </button>
+          <button class="choice-card" type="button" data-go-step="5">
+            <span class="choice-card__icon">🧩</span>
+            <span class="choice-card__title">Flessibilita</span>
+            <span class="choice-card__subtitle">Cambiare senza vincoli onerosi</span>
+          </button>
+          <button class="choice-card" type="button" data-go-step="5">
+            <span class="choice-card__icon">🌿</span>
+            <span class="choice-card__title">Sostenibilita</span>
+            <span class="choice-card__subtitle">Preferenza per energia da fonti rinnovabili</span>
+          </button>
         </div>
       </section>
+
+      <section class="step step-5" data-step="5" hidden>
+        <p class="step-kicker">Step 5 di 5</p>
+        <h1 class="step-title">Migliori offerte per te</h1>
+        <p class="step-description">Risultati personalizzati in base alle scelte fatte nei passaggi precedenti.</p>
+
+        <section class="offers-section" aria-labelledby="offers-fixed-title">
+          <h2 id="offers-fixed-title" class="offers-title">Migliori offerte per te a prezzo fisso</h2>
+          <div class="offers-slots" role="list">
+            <div id="offers-fixed-1" class="offer-slot" role="listitem"></div>
+            <div id="offers-fixed-2" class="offer-slot" role="listitem"></div>
+          </div>
+        </section>
+
+        <section class="offers-section" aria-labelledby="offers-var-title">
+          <h2 id="offers-var-title" class="offers-title">Migliori offerte per te a prezzo variabile</h2>
+          <div class="offers-slots" role="list">
+            <div id="offers-var-1" class="offer-slot" role="listitem"></div>
+            <div id="offers-var-2" class="offer-slot" role="listitem"></div>
+          </div>
+        </section>
+      </section>
+
+      <footer class="wizard-footer" aria-label="Controlli navigazione">
+        <button class="wizard-btn wizard-btn--secondary" type="button" data-action="prev" disabled>Indietro</button>
+        <button class="wizard-btn wizard-btn--primary" type="button" data-action="next">Avanti</button>
+      </footer>
     </main>
 
-    <script src="src/app.js"></script>
+    <script type="module" src="./src/app.js"></script>
+    <script>
+      (() => {
+        const TOTAL_STEPS = 5;
+        let currentStep = 1;
+
+        const progressLabel = document.querySelector('[data-progress-label]');
+        const progressFill = document.querySelector('[data-progress-fill]');
+        const progressTrack = document.querySelector('.wizard-progress__track');
+        const prevBtn = document.querySelector('[data-action="prev"]');
+        const nextBtn = document.querySelector('[data-action="next"]');
+
+        const fallbackShowStep = (step) => {
+          document.querySelectorAll('.step[data-step]').forEach((node) => {
+            const nodeStep = Number(node.getAttribute('data-step'));
+            const isActive = nodeStep === step;
+            node.hidden = !isActive;
+            node.classList.toggle('is-active', isActive);
+          });
+        };
+
+        const updateUI = () => {
+          const percentage = (currentStep / TOTAL_STEPS) * 100;
+          if (progressLabel) {
+            progressLabel.textContent = `Step ${currentStep} di ${TOTAL_STEPS}`;
+          }
+          if (progressFill) {
+            progressFill.style.width = `${percentage}%`;
+          }
+          if (progressTrack) {
+            progressTrack.setAttribute('aria-valuenow', String(currentStep));
+          }
+
+          if (prevBtn) {
+            prevBtn.disabled = currentStep === 1;
+          }
+          if (nextBtn) {
+            nextBtn.disabled = currentStep === TOTAL_STEPS;
+          }
+        };
+
+        const setStep = (targetStep) => {
+          const boundedStep = Math.max(1, Math.min(TOTAL_STEPS, Number(targetStep) || 1));
+          currentStep = boundedStep;
+
+          if (typeof window.showStep === 'function') {
+            window.showStep(boundedStep);
+          } else {
+            fallbackShowStep(boundedStep);
+          }
+
+          updateUI();
+        };
+
+        document.addEventListener('click', (event) => {
+          const nextStepBtn = event.target.closest('[data-go-step]');
+          if (nextStepBtn) {
+            setStep(Number(nextStepBtn.getAttribute('data-go-step')));
+            return;
+          }
+
+          const actionBtn = event.target.closest('[data-action]');
+          if (!actionBtn) {
+            return;
+          }
+
+          const action = actionBtn.getAttribute('data-action');
+          if (action === 'prev') {
+            setStep(currentStep - 1);
+          }
+          if (action === 'next') {
+            setStep(currentStep + 1);
+          }
+        });
+
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', () => setStep(1));
+        } else {
+          setStep(1);
+        }
+      })();
+    </script>
   </body>
 </html>
